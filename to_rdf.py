@@ -25,7 +25,7 @@ def to_rdf(argv):
     URL = 'https://jscholarship.library.jhu.edu/oai/request?set=col_1774.2_64315'
     URL = 'https://jscholarship.library.jhu.edu/oai/request?set=col_1774.2_34121'
     URL = 'https://jscholarship.library.jhu.edu/oai/request?set=col_1774.2_40418'
-    dst_file = '/Users/apple/Dropbox/Coding_job/result.rdf'   ## In case cron job needs absolute address
+    dst_file = '/Users/apple/Dropbox/JHU_Econ_OAI-PMH_to_rdf/result.rdf'   ## In case cron job needs absolute address
     # dst_file = './result.rdf'
     dst_titles = []
 
