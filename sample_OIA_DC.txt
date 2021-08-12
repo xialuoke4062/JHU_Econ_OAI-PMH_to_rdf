@@ -1,0 +1,22 @@
+<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:doc="http://www.lyncode.com/xoai" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+<dc:title>COVID-19 and the U.S. Social Safety Net</dc:title>
+<dc:creator />
+<dc:creator>Moffitt, Robert</dc:creator>
+<dc:creator>Ziliak, James</dc:creator>
+<dc:subject>COVID-19, safety net, welfare</dc:subject>
+<dc:subject>JEL Classification</dc:subject>
+<dc:description>We examine trends in employment, earnings, and incomes over the last two decades in the United States, and how the safety net has responded to changing fortunes, including the shutdown of the economy in response to the Covid-19 Pandemic. The U.S. safety net is a patchwork of different programs providing in-kind as well as cash benefits and had many holes prior to the Pandemic. In addition, few of the programs are designed explicitly as automatic stabilizers. We show that the safety net response to employment losses in the Covid-19 Pandemic largely consists only of increased support from unemployment insurance and food assistance programs, an inadequate response compared to the magnitude of the downturn. We discuss options to reform social assistance in America to provide more robust income floors in times of economic downturns.</dc:description>
+<dc:date />
+<dc:date>2021-08-01T18:14:59Z</dc:date>
+<dc:date>2021-08-01T18:14:59Z</dc:date>
+<dc:date />
+<dc:date>2020-09</dc:date>
+<dc:date />
+<dc:type>Working Paper</dc:type>
+<dc:identifier />
+<dc:identifier>http://jhir.library.jhu.edu/handle/1774.2/64317</dc:identifier>
+<dc:rights />
+<dc:rights />
+<dc:format />
+<dc:format>application/pdf</dc:format>
+</oai_dc:dc>
