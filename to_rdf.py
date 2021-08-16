@@ -4,7 +4,40 @@ from pathlib import Path
 from sys import argv
 from bs4 import BeautifulSoup
 import os
-import time
+import time 
+import requests
+
+def get_jhu():
+    jhu_faculty, jhu_grads = [], []
+
+    ### Faculty Retrieval
+    faculty_URL = "https://econ.jhu.edu/people/faculty/"
+    resp = requests.get(faculty_URL)
+    soupy = BeautifulSoup(resp.content, 'lxml')
+    for heading in soupy.find_all(["h3"]):
+        name = heading.text.strip()
+        jhu_faculty.append(name)
+
+    ### Faculty Retrieval
+    grads_URL = "https://econ.jhu.edu/people/graduate-students/"
+    resp = requests.get(grads_URL)
+    soupy = BeautifulSoup(resp.content, 'lxml')
+    for heading in soupy.find_all('tr'):
+        cols = heading.find_all('td')
+        for col in cols:
+            if col.has_attr('class') and col['class'][0] == 'column-1':
+                name = col.text.strip().split("\n")[0].strip()
+                if name == "Name": continue
+                jhu_grads.append(name)
+
+    return jhu_faculty + jhu_grads
+
+def is_jhu(name, jhu_people):
+    last_name, first_name = name.split(', ')[0], name.split(', ')[1]
+    for person in jhu_people:
+        if last_name in person.split() and first_name in person.split():
+            return True
+    return False
 
 def add_entry(metatags, file, field):
     for taglia in metatags:
@@ -33,6 +66,7 @@ def to_rdf(argv):
     dst_file = '/Users/apple/Dropbox/JHU_Econ_OAI-PMH_to_rdf/result.rdf'   ## In case cron job needs absolute address
     # dst_file = '//shiner.win.ad.jhu.edu/repec/result_20210813_raw.rdf' # Connect to VPN. map drive "\\shine.win.ad.jhu.edu\repec" on Windows invert backlash for Mac. 
     # dst_file = './result.rdf'
+    jhu_people = get_jhu()
     dst_ids = []
 
     ### Retrieving all records from specific community or collection
@@ -65,8 +99,7 @@ def to_rdf(argv):
                 break
             id = taglia.text[-5:]
 
-        ### Skip existing articles based on title, assuming there will
-        ### never be changes to the entries
+        ### Skip existing articles based on ID
         if var == "append" and Path(dst_file).exists():
             if id in dst_ids:
                 print('Skipping existing article: ' + id)    # Debug purpose
@@ -77,10 +110,16 @@ def to_rdf(argv):
         file.write('Template-type: ReDIF-Paper 1.0\n')
         # 2. Author-Name
         metatags = soupy.find_all(attrs={'element':'contributor', 'qualifier':'author'})
-        add_entry(metatags, file, "Author-Name: ")
+        for taglia in metatags:
+            elem = taglia.text
+            if elem=="":
+                return
+            file.write("Author-Name: " + elem + '\n')
+            if is_jhu(elem, jhu_people):
+                file.write("Author-Workplace-Name: Johns Hopkins University, Department of Economics\n")
         # 3. Author-Email: not provided on JHU library
         # 4. AUthor-Homepage: not provided on JHU library
-        # 5. Author-Workplace-Name: not provided on JHU library
+        # 5. Author-Workplace-Name: written above
         # 6. Author-Workplace-Homepage: not provided on JHU library
         # 7. Title
         metatags = soupy.find_all(attrs={'element':'title'})
