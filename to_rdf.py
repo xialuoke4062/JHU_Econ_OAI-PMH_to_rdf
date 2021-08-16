@@ -14,7 +14,9 @@ def add_entry(metatags, file, field):
         file.write(field + elem + '\n')
 
 def to_rdf(argv):
-    var = "append"
+    ### !!! YOU MAY CHANGE THE DEFAULT EDITING METHOD (override/append)!!!
+    var = "override"
+    ### !!! YOU MAY CHANGE THE DEFAULT EDITING METHOD (override/append)!!!
     if len(argv) != 1 and len(argv) != 2:
         print("Wrong argument length. Please leave blank (append) or enter override")
         return 
