@@ -20,3 +20,14 @@ Revision-Date: 2021-01-15
 File-URL: http://jhir.library.jhu.edu/handle/1774.2/64323
 Handle: RePEc:jhu:papers:64323
 
+Template-type: ReDIF-Paper 1.0
+Author-Name: Hu, Yingyao
+Author-Workplace-Name: Johns Hopkins University, Department of Economics
+Title: Identification of Causal Models with Unobservables: A Self-Report Approach
+Abstract: This paper presents a novel self-report approach to identify a general causal model with an unobserved covariate, which can be unobserved heterogeneity or an unobserved choice variable. It shows that a carefully designed noninvasive survey procedure can provide enough information to identify the complete causal model through the joint distribution of the observables and the unobservable. The global nonparametric point identification results provide sufficient conditions under which the joint distribution of four observables, two in a causal model and two from surveys, uniquely determines the joint distribution of the unobservable in the causal model and the four observables. The identification of such a joint distribution including the unobserved covariate implies that the complete causal model is identified.
+Classification-JEL: C01, C14
+Keywords: Causal model, Measurement error model, Nonparametric identification
+Creation-Date: 2021-08-18
+File-URL: http://jhir.library.jhu.edu/handle/1774.2/64330
+Handle: RePEc:jhu:papers:64330
+

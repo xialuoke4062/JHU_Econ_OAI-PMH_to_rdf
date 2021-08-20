@@ -72,7 +72,7 @@ def to_rdf(argv):
     ### Retrieving all records from specific community or collection
     sickle = Sickle(URL)
     # records = sickle.ListRecords(metadataPrefix='oai_dc')
-    records = sickle.ListRecords(metadataPrefix='dim')
+    records = sickle.ListRecords(metadataPrefix='dim', ignore_deleted=True)
 
     ### Creating brand new rdf file, overriding previous file if already exists
     if var == "override" or not Path(dst_file).exists():
